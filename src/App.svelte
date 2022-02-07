@@ -22,4 +22,19 @@
 	@tailwind base;
 	@tailwind components;
 	@tailwind utilities;
+
+	.backdrop-blur {
+  		backdrop-filter: blur(8px);
+	}
+	.backdrop-blur-sm {
+  		backdrop-filter: blur(4px);
+	}
+	.backdrop-blur-md {
+  		backdrop-filter: blur(12px);
+	}
+	.inset-center {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+	}
 </style>
