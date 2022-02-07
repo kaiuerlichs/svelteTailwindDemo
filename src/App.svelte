@@ -12,7 +12,7 @@
 			Launch Model Viewer
 		</button>
 	{:else if $state == "model"}
-		<div class="h-full w-full p-4" on:outroend={onOutro} transition:fade>
+		<div class="h-full w-full" on:outroend={onOutro} transition:fade>
 			<ModelView on:closeModelView={() => transitionTo("main")}/>
 		</div>
 	{/if}
