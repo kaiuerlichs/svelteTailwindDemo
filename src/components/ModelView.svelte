@@ -11,7 +11,7 @@
     }
 </script>
 
-<div class="rounded-[30px] h-[95%] w-[95%] overflow-hidden relative shadow-md bg-slate-800">
+<div class="rounded-[30px] h-full w-full overflow-hidden relative shadow-md bg-slate-800">
     <iframe
         src="./scene.html"
         title="AR Scene"
