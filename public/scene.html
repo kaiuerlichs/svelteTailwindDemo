@@ -8,7 +8,7 @@
     <script>
     </script>
 
-    <a-scene embedded arjs vr-mode-ui="enabled: false">
+    <a-scene embedded arjs vr-mode-ui="enabled: false" renderer="logarithmicDepthBuffer: true;">
         <a-marker cursor="rayOrigin: mouse;" preset="hiro" vr-mode-ui="enabled: false" raycaster="showLine: true; objects: .collidable">
             <a-entity class="collidable" position="0 0 0" scale="0.05 0.05 0.05" gltf-model="./model/book/scene.gltf"></a-entity>
         </a-marker>
