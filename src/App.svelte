@@ -1,35 +1,13 @@
 <script>
-	export let name;
+	import ModelView from "./components/ModelView.svelte";
 </script>
 
-<div class="grid grid-cols-4 gap-4">
-	{#each {length: 5} as _, i}
-  		<div>{i+1}</div>
-	{/each}
+<div class="h-screen flex justify-center items-center">
+	<ModelView on:closeModelView={() => {transitionTo("main")}}/>
 </div>
 
 <style global lang="postcss">
 	@tailwind base;
 	@tailwind components;
 	@tailwind utilities;
-
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
 </style>
