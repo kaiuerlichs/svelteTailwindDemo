@@ -3,7 +3,17 @@
 </script>
 
 <div class="h-screen flex justify-center items-center">
-	<ModelView on:closeModelView={() => {transitionTo("main")}}/>
+	<!-- <ModelView/> -->
+	<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+	<!-- we import arjs version without NFT but with marker + location based support -->
+	<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+	<a-scene embedded arjs vr-mode-ui="enabled: false">
+        <a-marker cursor="rayOrigin: mouse;" preset="hiro" vr-mode-ui="enabled: false" raycaster="showLine: true; objects: .collidable">
+            <a-entity class="collidable" position="0 0 0" scale="25 25 25" gltf-model="./model/avocado/Avocado.gltf"></a-entity>
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
 </div>
 
 <style global lang="postcss">
