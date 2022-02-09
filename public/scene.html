@@ -16,10 +16,13 @@
 
             AFRAME.registerComponent("test", {
                 init: function () {
-                    let test = document.getElementById("injector")
-                    test.remove()
-                    setTimeout(() => {  scene.appendChild(test.cloneNode()); }, 5000);
-                    console.log(test)
+                    let injector = document.getElementById("injector")
+                    let event = new Event("nodesReady")
+                    injector.remove()
+                    setTimeout(() => {  
+                        scene.appendChild(injector.cloneNode());
+                        parent.window.dispatchEvent(event);
+                    }, 5000);
                 }
             })
         </script>
