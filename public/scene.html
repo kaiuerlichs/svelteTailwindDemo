@@ -1,19 +1,37 @@
 <html>
-<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-<!-- we import arjs version without NFT but with marker + location based support -->
-<script src="./aframe-ar.js"></script>
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <!-- we import arjs version without NFT but with marker + location based support -->
+    <script src="./aframe-ar.js"></script>
 
-<body style="margin : 0px; overflow: hidden;">
+    <body style="margin : 0px; overflow: hidden;">
 
-    <script>
-    </script>
+        <script>
+            AFRAME.registerComponent('clickhandler', {
+                init: function () {
+                    this.el.addEventListener('click', () => {
+                    this.el.setAttribute('material', 'color: red;');
+                    });
+                },
+            });
 
-    <a-scene embedded arjs vr-mode-ui="enabled: false" renderer="logarithmicDepthBuffer: true;">
-        <a-marker cursor="rayOrigin: mouse;" preset="hiro" vr-mode-ui="enabled: false" raycaster="showLine: true; objects: .collidable">
-            <a-entity class="collidable" position="0 0 0" scale="0.05 0.05 0.05" gltf-model="./model/book/scene.gltf"></a-entity>
-        </a-marker>
-        <a-entity camera></a-entity>
-    </a-scene>
-</body>
+            AFRAME.registerComponent("test", {
+                init: function () {
+                    let test = document.getElementById("injector")
+                    test.remove()
+                    setTimeout(() => {  scene.appendChild(test.cloneNode()); }, 5000);
+                    console.log(test)
+                }
+            })
+        </script>
+
+        <a-scene test id="scene" emitevents="true" embedded arjs vr-mode-ui="enabled: false" renderer="logarithmicDepthBuffer: true;">
+            <a-entity id="injector" cursor="rayOrigin: mouse" raycaster="objects: .clickable"></a-entity>
+            <a-marker preset="hiro">
+                <a-entity id="model" position="0 0 0" scale="0.05 0.05 0.05" gltf-model="./model/book/scene.gltf"></a-entity>
+                <a-sphere color="yellow" id="sphere" class="clickable" radius="0.01" position="0.1 0.1 0.1" clickhandler></a-sphere>
+            </a-marker>
+            <a-entity camera></a-entity>
+        </a-scene>
+    </body>
 
 </html>
