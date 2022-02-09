@@ -29,7 +29,7 @@
         </script>
 
         <a-scene test id="scene" emitevents="true" embedded arjs vr-mode-ui="enabled: false" renderer="logarithmicDepthBuffer: true;">
-            <a-entity id="injector" cursor="rayOrigin: mouse" raycaster="objects: .clickable"></a-entity>
+            <a-entity id="injector" cursor="rayOrigin: mouse; fuseTimeout: 0;" raycaster="objects: .clickable"></a-entity>
             <a-marker preset="hiro">
                 <a-entity id="model" position="0 0 0" scale="0.05 0.05 0.05" gltf-model="./model/book/scene.gltf"></a-entity>
                 <a-sphere color="#EF2D56" class="clickable" radius="0.1" position="0 0.1 -1.2" clickhandler></a-sphere>
